@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { BottomNav } from '@/components/bottom-nav';
-import { SearchOverlay } from '@/components/search-overlay';
 import { Logo } from '@/components/icons';
 import { cn } from '@/lib/utils';
 
@@ -36,14 +35,11 @@ export default function MainLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      <SearchOverlay open={isSearchOpen} onOpenChange={setIsSearchOpen} />
       <Header />
       <main className="flex-grow pb-24 md:pb-28">{children}</main>
-      <BottomNav onSearchClick={() => setIsSearchOpen(true)} />
+      <BottomNav />
     </div>
   );
 }

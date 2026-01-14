@@ -28,10 +28,6 @@ function NavItem({ href, icon: Icon, label, isActive, onClick }: NavItemProps) {
     </div>
   );
 
-  if (onClick) {
-    return <button className="flex-1">{content}</button>;
-  }
-
   return (
     <Link href={href} className="flex-1">
       {content}
@@ -39,12 +35,12 @@ function NavItem({ href, icon: Icon, label, isActive, onClick }: NavItemProps) {
   );
 }
 
-export function BottomNav({ onSearchClick }: { onSearchClick: () => void }) {
+export function BottomNav() {
   const pathname = usePathname();
 
   const navItems = [
-    { href: '/', icon: Compass, label: 'For You' },
-    { href: '/search', icon: Search, label: 'Search', onClick: onSearchClick },
+    { href: '/', icon: Search, label: 'Search' },
+    { href: '/for-you', icon: Compass, label: 'For You' },
     { href: '/trips', icon: Heart, label: 'Trips' },
     { href: '/reviews', icon: MessageSquare, label: 'Reviews' },
     { href: '/profile', icon: User, label: 'Profile' },
@@ -60,7 +56,6 @@ export function BottomNav({ onSearchClick }: { onSearchClick: () => void }) {
             icon={item.icon}
             label={item.label}
             isActive={pathname === item.href}
-            onClick={item.onClick}
           />
         ))}
       </div>
