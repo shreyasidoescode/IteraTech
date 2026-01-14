@@ -1,8 +1,9 @@
+
 'use client';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Compass, Heart, Search, User } from 'lucide-react';
+import { Compass, Heart, Search, User, MessageSquare } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type NavItemProps = {
@@ -45,6 +46,7 @@ export function BottomNav({ onSearchClick }: { onSearchClick: () => void }) {
     { href: '/', icon: Compass, label: 'For You' },
     { href: '/search', icon: Search, label: 'Search', onClick: onSearchClick },
     { href: '/trips', icon: Heart, label: 'Trips' },
+    { href: '/reviews', icon: MessageSquare, label: 'Reviews' },
     { href: '/profile', icon: User, label: 'Profile' },
   ];
 
