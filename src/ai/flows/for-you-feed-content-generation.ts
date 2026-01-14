@@ -9,6 +9,7 @@
  */
 
 import {ai} from '@/ai/genkit';
+import {googleAI} from '@genkit-ai/google-genai';
 import {z} from 'genkit';
 
 const ForYouFeedContentInputSchema = z.object({
@@ -39,28 +40,10 @@ export async function generateForYouFeedContent(
   return forYouFeedContentFlow(input);
 }
 
-const getTravelDestinations = ai.defineTool(
-  {
-    name: 'getTravelDestinations',
-    description: 'Returns a list of travel destinations that can be recommended to the user.',
-    outputSchema: z.array(z.string()),
-  },
-  async () => {
-    return [
-        'Paris, France',
-        'Rome, Italy',
-        'Tokyo, Japan',
-        'Bali, Indonesia',
-        'New York, USA'
-    ];
-  }
-);
-
 const forYouFeedContentPrompt = ai.definePrompt({
   name: 'forYouFeedContentPrompt',
   input: {schema: ForYouFeedContentInputSchema},
   output: {schema: ForYouFeedContentOutputSchema},
-  tools: [getTravelDestinations],
   prompt: `You are an expert travel assistant that curates a personalized "For You" feed for users, and should be creative and engaging.
 
   The feed should contain a mix of video content, flight deals, restaurant recommendations, and hotel previews based on the user's preferences and location.
@@ -78,6 +61,7 @@ const forYouFeedContentFlow = ai.defineFlow(
     name: 'forYouFeedContentFlow',
     inputSchema: ForYouFeedContentInputSchema,
     outputSchema: ForYouFeedContentOutputSchema,
+    model: googleAI.model('gemini-1.5-flash-latest'),
   },
   async input => {
     const {output} = await forYouFeedContentPrompt(input);
