@@ -1,16 +1,9 @@
 import { ForYouFeed } from '@/components/for-you-feed';
-import { Logo } from '@/components/icons';
 import { Suspense } from 'react';
 
 export default function HomePage() {
   return (
-    <div className="container mx-auto px-4 pt-6">
-      <header className="flex items-center gap-2 mb-6">
-        <Logo className="h-8 w-8" />
-        <h1 className="text-2xl font-bold font-headline text-primary">
-          Iteritas
-        </h1>
-      </header>
+    <div className="container mx-auto px-4">
       <Suspense fallback={<FeedSkeleton />}>
         <ForYouFeed />
       </Suspense>
