@@ -5,20 +5,33 @@ export function Logo(props: SVGProps<SVGSVGElement>) {
     <svg
       width="50"
       height="50"
-      viewBox="0 0 50 50"
+      viewBox="0 0 100 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
-        d="M25 5L45 25L25 45L5 25L25 5Z"
+        d="M10 80 L 40 30 L 70 80 M 30 80 L 65 20 L 100 80"
         stroke="hsl(var(--primary))"
-        strokeWidth="4"
+        strokeWidth="6"
         strokeLinejoin="round"
+        strokeLinecap="round"
       />
       <path
-        d="M25 15L35 25L25 35L15 25L25 15Z"
+        d="M25 80 L 25 70 L 20 70 L 25 60 L 30 70 L 25 70"
+        stroke="hsl(var(--primary))"
         fill="hsl(var(--primary))"
+        strokeWidth="3"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+      />
+      <path
+        d="M75 80 L 75 70 L 70 70 L 75 60 L 80 70 L 75 70"
+        stroke="hsl(var(--primary))"
+        fill="hsl(var(--primary))"
+        strokeWidth="3"
+        strokeLinejoin="round"
+        strokeLinecap="round"
       />
     </svg>
   );
