@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useEffect, useState, useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import {
   Sheet,
   SheetContent,
@@ -53,7 +53,7 @@ export function SearchOverlay({
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }) {
-  const [state, formAction] = useFormState(searchAction, null);
+  const [state, formAction] = useActionState(searchAction, null);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
