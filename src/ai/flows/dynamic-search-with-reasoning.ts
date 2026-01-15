@@ -64,10 +64,8 @@ const dynamicSearchWithReasoningFlow = ai.defineFlow(
   },
   async input => {
     // Fetch the current time of year, common search phrases, and available flights.
-    const currentTimeOfYear = new Date().toLocaleDateString(undefined, {
-      month: 'long',
-      day: 'numeric',
-    });
+    const currentTimeOfYear = new Date().toLocaleString('en-US', { month: 'long', day: 'numeric' });
+
     const commonSearchPhrases = ['cheap flights to hawaii', 'family hotels in orlando']; // In reality, pull this from a database.
     const availableFlights = ['SFO to JFK', 'LAX to HNL']; // In reality, pull this from an API.
 
