@@ -1,6 +1,6 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import { User, Sun, Moon, Laptop } from 'lucide-react';
+import { User, Sun, Moon, Laptop, Phone, Mail } from 'lucide-react';
 import Link from 'next/link';
 import {
   DropdownMenu,
@@ -9,6 +9,8 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { useTheme } from '@/components/theme-provider';
+import { Separator } from '@/components/ui/separator';
+import { Facebook, Instagram, Twitter } from '@/components/icons';
 
 function ThemeSwitcher() {
   const { setTheme } = useTheme();
@@ -56,6 +58,43 @@ export default function ProfilePage() {
         <Button asChild className="mt-6 font-bold">
           <Link href="/login">Login or Sign Up</Link>
         </Button>
+      </div>
+
+      <Separator className="my-8" />
+
+      <div className="text-center">
+        <h2 className="text-2xl font-bold font-headline mb-4">About Us</h2>
+        <div className="text-muted-foreground space-y-4">
+          <div>
+            <h3 className="font-semibold text-foreground">Contact Us</h3>
+            <a href="tel:+1234567890" className="flex items-center justify-center gap-2 hover:text-primary">
+              <Phone className="w-4 h-4" />
+              <span>+1 (234) 567-890</span>
+            </a>
+            <a href="mailto:contact@iteritas.com" className="flex items-center justify-center gap-2 hover:text-primary">
+              <Mail className="w-4 h-4" />
+              <span>contact@iteritas.com</span>
+            </a>
+          </div>
+          <div>
+            <h3 className="font-semibold text-foreground">Address</h3>
+            <p>123 Travel Lane, Adventure City, World</p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-foreground">Follow Us</h3>
+            <div className="flex justify-center gap-4 mt-2">
+              <Link href="#" className="text-muted-foreground hover:text-primary">
+                <Facebook className="h-6 w-6" />
+              </Link>
+              <Link href="#" className="text-muted-foreground hover:text-primary">
+                <Instagram className="h-6 w-6" />
+              </Link>
+              <Link href="#" className="text-muted-foreground hover:text-primary">
+                <Twitter className="h-6 w-6" />
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

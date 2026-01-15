@@ -11,6 +11,7 @@ import {
   type DynamicSearchWithReasoningOutput,
 } from '@/ai/flows/dynamic-search-with-reasoning';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import Link from 'next/link';
 
 type SearchState = DynamicSearchWithReasoningOutput | null;
 
@@ -40,6 +41,32 @@ function SubmitButton() {
   );
 }
 
+function SearchResultCard({ item }: { item: DynamicSearchWithReasoningOutput['results'][0] }) {
+  const cardContent = (
+    <Card className="bg-card/80 hover:bg-card/90 transition-colors">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2 text-primary font-headline">
+          <span className="capitalize">{item.type}</span>
+        </CardTitle>
+        <CardDescription className="font-bold text-lg text-foreground">
+          {item.destination}
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <p className="text-muted-foreground">{item.details}</p>
+        <p className="text-xs text-primary/70 mt-2">Relevance: {Math.round(item.relevanceScore * 100)}%</p>
+      </CardContent>
+    </Card>
+  );
+
+  if (item.type === 'hotel') {
+    return <Link href="/login">{cardContent}</Link>;
+  }
+
+  return <div className="cursor-pointer">{cardContent}</div>;
+}
+
+
 export default function SearchPage() {
   const [state, formAction] = useActionState(searchAction, null);
 
@@ -64,20 +91,7 @@ export default function SearchPage() {
         <div className="p-4 grid gap-4">
           {state?.results && state.results.length > 0 ? (
             state.results.map((item, index) => (
-              <Card key={index} className="bg-card/80">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-primary font-headline">
-                    <span className="capitalize">{item.type}</span>
-                  </CardTitle>
-                  <CardDescription className="font-bold text-lg text-foreground">
-                    {item.destination}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{item.details}</p>
-                  <p className="text-xs text-primary/70 mt-2">Relevance: {Math.round(item.relevanceScore * 100)}%</p>
-                </CardContent>
-              </Card>
+              <SearchResultCard key={index} item={item} />
             ))
           ) : (
              state?.results && (
