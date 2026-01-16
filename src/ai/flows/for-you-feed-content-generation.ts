@@ -61,7 +61,6 @@ const forYouFeedContentFlow = ai.defineFlow(
     name: 'forYouFeedContentFlow',
     inputSchema: ForYouFeedContentInputSchema,
     outputSchema: ForYouFeedContentOutputSchema,
-    model: googleAI.model('gemini-1.5-flash-latest'),
   },
   async input => {
     const {output} = await forYouFeedContentPrompt(input);
