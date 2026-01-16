@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Compass, Heart, Search, User, MessageSquare } from 'lucide-react';
+import { Compass, Heart, Search, User, MessageSquare, Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type NavItemProps = {
@@ -41,6 +41,7 @@ export function BottomNav() {
   const navItems = [
     { href: '/', icon: Search, label: 'Search' },
     { href: '/for-you', icon: Compass, label: 'For You' },
+    { href: '/traverse', icon: Star, label: 'Traverse' },
     { href: '/trips', icon: Heart, label: 'Trips' },
     { href: '/reviews', icon: MessageSquare, label: 'Reviews' },
     { href: '/profile', icon: User, label: 'Profile' },
