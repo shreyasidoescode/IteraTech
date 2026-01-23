@@ -11,7 +11,12 @@ async function VideoDisplay({ prompt, title }: { prompt: string; title: string }
     videoData = await generateTravelVideo({ prompt });
   } catch (e: any) {
     console.error(`Failed to generate video for prompt "${prompt}":`, e);
-    error = e.message || 'Unknown error occurred.';
+    if (e.message && e.message.includes('billing enabled')) {
+      error =
+        'This feature requires a billing-enabled Google Cloud account. Please enable billing for your project to generate videos.';
+    } else {
+      error = e.message || 'An unknown error occurred while generating the video.';
+    }
   }
 
   return (
@@ -19,8 +24,9 @@ async function VideoDisplay({ prompt, title }: { prompt: string; title: string }
       <CardContent className="p-4">
         <h2 className="text-xl font-bold font-headline mb-4">{title}</h2>
         {error ? (
-          <div className="aspect-video bg-muted rounded-lg flex items-center justify-center text-destructive p-4 text-center">
-            <p>Could not load video. {error}</p>
+          <div className="aspect-video bg-muted rounded-lg flex flex-col items-center justify-center text-center p-4">
+            <p className="font-semibold text-destructive">Could Not Generate Video</p>
+            <p className="text-muted-foreground mt-2 text-sm">{error}</p>
           </div>
         ) : videoData ? (
           <video
