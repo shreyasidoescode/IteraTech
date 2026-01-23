@@ -59,10 +59,11 @@ const generateTravelVideoFlow = ai.defineFlow(
   },
   async ({prompt}) => {
     let {operation} = await ai.generate({
-      model: googleAI.model('veo-3.0-generate-preview'),
+      model: googleAI.model('veo-2.0-generate-001'),
       prompt: prompt,
       config: {
         aspectRatio: '16:9',
+        durationSeconds: 5,
       },
     });
 
