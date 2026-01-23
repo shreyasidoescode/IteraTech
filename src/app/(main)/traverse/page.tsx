@@ -24,7 +24,7 @@ export default function TraversePage() {
   const youtubeVideos = [
     {
       title: 'Soaring Over the Alps',
-      videoId: 'LXb3EKWsInQ',
+      videoId: 'Cd1Tc2UpnDY',
     },
     {
       title: 'A Walk Through Tokyo at Night',
