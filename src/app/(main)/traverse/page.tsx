@@ -10,8 +10,7 @@ async function VideoDisplay({ prompt, title }: { prompt: string; title: string }
   try {
     videoData = await generateTravelVideo({ prompt });
   } catch (e: any) {
-    console.error(`Failed to generate video for prompt "${prompt}":`, e);
-    if (e.message && e.message.includes('billing enabled')) {
+    if (e.message && e.message.includes('billing')) {
       error =
         'This feature requires a billing-enabled Google Cloud account. Please enable billing for your project to generate videos.';
     } else {
