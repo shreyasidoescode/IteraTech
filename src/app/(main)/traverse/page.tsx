@@ -28,7 +28,7 @@ export default function TraversePage() {
     },
     {
       title: 'A Walk Through Tokyo at Night',
-      videoId: 'F-S_n0RB4gM',
+      videoId: 'IuTDuvYr7f0',
     },
   ];
 
