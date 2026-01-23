@@ -12,7 +12,7 @@ export async function ForYouFeed() {
   try {
     feedData = await generateForYouFeedContent({
       userPreferences: 'adventure, unique architecture, and street food',
-      location: 'New York City',
+      location: 'Tokyo',
     });
   } catch (error) {
     console.error('Failed to generate For You feed content:', error);
