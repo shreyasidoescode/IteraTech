@@ -1,48 +1,55 @@
-import { generateForYouFeedContent, type ForYouFeedContentOutput } from '@/ai/flows/for-you-feed-content-generation';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { FeedCard } from './feed-card';
+import { FeedCard, type FeedItem } from './feed-card';
 
-// A simple deterministic function to assign images to feed items
-function getPlaceholderImage(index: number) {
-  return PlaceHolderImages[index % PlaceHolderImages.length];
-}
+const staticFeedItems: (FeedItem & { imageHint: string })[] = [
+  {
+    type: 'hotel',
+    title: 'Luxury Stay in Santorini',
+    description: 'Experience the breathtaking sunsets and iconic white-washed villages.',
+    imageUrl: PlaceHolderImages[0].imageUrl,
+    imageHint: PlaceHolderImages[0].imageHint,
+  },
+  {
+    type: 'flight',
+    title: 'Direct Flight to Tokyo',
+    description: "Explore the vibrant culture and bustling streets of Japan's capital.",
+    imageUrl: PlaceHolderImages[1].imageUrl,
+    imageHint: PlaceHolderImages[1].imageHint,
+  },
+  {
+    type: 'restaurant',
+    title: 'Gourmet Dining Experience',
+    description: 'Indulge in a culinary journey with our exclusive tasting menu.',
+    imageUrl: PlaceHolderImages[3].imageUrl,
+    imageHint: PlaceHolderImages[3].imageHint,
+  },
+  {
+    type: 'hotel',
+    title: 'Boutique Hotel in the City',
+    description: 'A stylish and cozy stay in the heart of the city.',
+    imageUrl: PlaceHolderImages[7].imageUrl,
+    imageHint: PlaceHolderImages[7].imageHint,
+  },
+  {
+    type: 'flight',
+    title: 'First Class to Paradise',
+    description: 'Travel in style and comfort to your dream destination.',
+    imageUrl: PlaceHolderImages[9].imageUrl,
+    imageHint: PlaceHolderImages[9].imageHint,
+  },
+];
 
-export async function ForYouFeed() {
-  let feedData: ForYouFeedContentOutput | null = null;
-  try {
-    feedData = await generateForYouFeedContent({
-      userPreferences: 'adventure, unique architecture, and street food',
-      location: 'Tokyo',
-    });
-  } catch (error) {
-    console.error('Failed to generate For You feed content:', error);
-    return (
-      <div className="text-center py-10 text-destructive">
-        <p>Could not load feed. Please try again later.</p>
-      </div>
-    );
-  }
 
-  if (!feedData || feedData.feedItems.length === 0) {
-    return (
-      <div className="text-center py-10 text-muted-foreground">
-        <p>Nothing new for you right now. Check back later!</p>
-      </div>
-    );
-  }
-  
+export function ForYouFeed() {
   return (
     <div className="space-y-8">
-      {feedData.feedItems.map((item, index) => {
-        const placeholder = getPlaceholderImage(index);
-        return (
-            <FeedCard 
-                key={`${item.title}-${index}`}
-                item={{...item, imageUrl: placeholder.imageUrl}}
-                imageHint={placeholder.imageHint}
-            />
-        )
-      })}
+      {staticFeedItems.map((item, index) => (
+        <FeedCard 
+            key={`${item.title}-${index}`}
+            item={item}
+            imageHint={item.imageHint}
+        />
+      ))}
     </div>
   );
 }

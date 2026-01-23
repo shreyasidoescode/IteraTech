@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Heart, Share2 } from 'lucide-react';
 
-type FeedItem = {
+export type FeedItem = {
   type: 'video' | 'flight' | 'restaurant' | 'hotel';
   title: string;
   description: string;
