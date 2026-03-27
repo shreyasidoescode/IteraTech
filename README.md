@@ -24,6 +24,7 @@ Community reviews and interaction
 All features are integrated into one user-friendly app.
 
 4. Key Features
+   
 4.1 Flight & Hotel Booking
 Search and compare flights and hotels
 Filters for price, rating, and amenities
