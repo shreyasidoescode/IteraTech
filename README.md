@@ -2,7 +2,6 @@
 1. Project Overview
 Team Name: IteraTech
  Project Type: Mobile Application Prototype
- Inspired By: MakeMyTrip
 Our application is a one-stop travel and experience platform that allows users to plan trips, book flights and hotels, reserve restaurants and experiences, and receive AI-based personalized recommendations.
  The goal is to make travel planning easy, engaging, and personalized.
 
