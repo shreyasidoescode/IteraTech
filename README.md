@@ -1,4 +1,4 @@
-# Iteritas - Travel Beautifully
+# Iteritas - Travel Exquisitely
 
 Iteritas is a sophisticated travel exploration platform prototype built using Next.js and Generative AI. It allows users to search for destinations using natural language, explore curated content via social-style reels, and plan their next adventure with ease.
 
