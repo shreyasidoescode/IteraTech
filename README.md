@@ -1,91 +1,36 @@
-**IteraTech – Travel & Experience Booking App (Prototype)**
-1. Project Overview
-Team Name: IteraTech
- Project Type: Mobile Application Prototype
-Our application is a one-stop travel and experience platform that allows users to plan trips, book flights and hotels, reserve restaurants and experiences, and receive AI-based personalized recommendations.
- The goal is to make travel planning easy, engaging, and personalized.
+# Iteritas - Travel Beautifully
 
-3. Problem Statement
-Current travel apps focus mainly on bookings and lack:
-Personalized content
-Community interaction
-Smart recommendations
-Experience discovery beyond hotels and flights
-Users want an app that understands their preferences and helps them discover travel, food, and experiences in one place.
+Iteritas is a sophisticated travel exploration platform prototype built using Next.js and Generative AI. It allows users to search for destinations using natural language, explore curated content via social-style reels, and plan their next adventure with ease.
 
-5. Proposed Solution
-IteraTech provides:
-Travel bookings
-Restaurant & experience reservations
-AI-powered recommendations
-Reel-style content for inspiration
-Community reviews and interaction
-All features are integrated into one user-friendly app.
+## ✨ Features
 
-4. Key Features
-   
-4.1 Flight & Hotel Booking
-Search and compare flights and hotels
-Filters for price, rating, and amenities
-Secure and easy booking process
+- **AI Search:** Search for trips using natural language (e.g., "a quiet escape for next weekend").
+- **Explore Reels:** A dedicated vertical video section in the "For You" tab featuring curated travel content.
+- **Traverse Tab:** A immersive gallery of high-quality travel videos.
+- **Personalized Feed:** Mix of hotel, flight, and restaurant recommendations.
+- **Theming:** Full support for System, Light, and Dark modes.
+- **Responsive Design:** Optimized for mobile-first interaction with a persistent bottom navigation bar.
 
-4.2 Restaurant & Experience Reservations
-Book restaurants, cafes, and local experiences
-View menus, prices, and availability
-Location-based recommendations
+## 🛠️ Tech Stack
 
-4.3 Personalized “For You” Feed
-Reel-style short videos and posts
-Shows destinations, hotels, food, and experiences
-Content based on user interests and past activity
+- **Framework:** [Next.js 15](https://nextjs.org/) (App Router)
+- **UI Components:** [Shadcn UI](https://ui.shadcn.com/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **AI Integration:** [Genkit](https://github.com/firebase/genkit) & [Google Gemini](https://ai.google.dev/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Fonts:** Space Grotesk (Headlines) & Inter (Body)
 
-4.4 AI & GenAI-Based Recommendations
-Personalized travel plans
-Suggested hotels, flights, and experiences
-Smart recommendations based on:
-Search history
-Bookings
-User preferences
+## 📁 Project Structure
 
-4.5 Reviews & Community Interaction
-Users can post reviews, ratings, and comments
-Like and share travel experiences
-Community-driven recommendations
-Backend supported using Firebase Studio
+- `src/app`: Next.js App Router pages and layouts.
+- `src/ai`: Genkit flows, prompts, and configuration.
+- `src/components`: Reusable UI components (Shadcn and custom).
+- `src/lib`: Utilities and shared data (like placeholder images).
 
-5. User Flow (Prototype)
-User signs up / logs in
-Home screen shows For You Feed
-User searches for:
-Flights
-Hotels
-Restaurants
-Experiences
-AI suggests personalized options
-User books or saves items
-User reviews and shares experiences
+## 🚀 Getting Started
 
-6. Technology Stack (Proposed)
-Frontend: Android / iOS (Prototype level)
-Backend: Firebase Studio
-Database: Firebase Firestore
-Authentication: Firebase Auth
-AI/GenAI: Recommendation Engine (conceptual)
-UI Design: Google Docs wireframe + flow diagrams
+1. Set up your `.env` file with a `GEMINI_API_KEY`.
+2. Run `npm install`.
+3. Start the development server with `npm run dev`.
 
-7. Target Users
-Frequent travelers
-Young professionals
-Families
-Food & experience explorers
-
-8. Unique Value Proposition
-Travel + food + experiences in one app
- Personalized AI-based suggestions
-Social and community-driven content
-Easy planning and booking
- 
- 
-
-
-
+For a more detailed overview, see the generated `project-info.html` in the root directory.
